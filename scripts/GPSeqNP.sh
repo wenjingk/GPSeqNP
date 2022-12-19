@@ -41,7 +41,7 @@ mkdir -p ${ref_dir}
 if [[ ! -s "${bowtie2_ref}.rev.2.bt2" ]]
 then
     echo "Reference genome fasta or bowtie indexed files are not present, trying to download ..."
-    wget -O ${ref_dir}/${ref_genome}.${version}.dna.primary_assembly.noChr.fa.gz http://ftp.ensembl.org/pub/release-${version}/fasta/${species}/dna/${ref_genome}.${version}.dna.primary_assembly.fa.gz
+    wget -O ${ref_dir}/${ref_genome}.${version}.dna.primary_assembly.noChr.fa.gz http://ftp.ensembl.org/pub/release-${version}/fasta/${species}/dna/${ref_genome}.${version}.dna.primary_assembly.fa.gz &> ${ref_dir}/download.log
     zcat ${ref_dir}/${ref_genome}.${version}.dna.primary_assembly.noChr.fa.gz | sed 's/>/>chr/' | cut -d" " -f 1 | gzip > ${ref_dir}/${ref_genome}.${version}.dna.primary_assembly.fa.gz
     rm ${ref_dir}/${ref_genome}.${version}.dna.primary_assembly.noChr.fa.gz
     /app/bin/bowtie2-build ${ref_dir}/${ref_genome}.${version}.dna.primary_assembly.fa.gz ${ref_dir}/${ref_genome}.${version}.dna.primary_assembly --threads 4 --verbose &> ${ref_dir}/${ref_genome}.${version}.dna.primary_assembly.log
