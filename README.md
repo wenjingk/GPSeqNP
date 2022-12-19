@@ -32,7 +32,11 @@ $ git clone https://github.com/BiCroLab/GPSeqNP.git
 $ cd GPSeqNP
 ```
 
-5.  Move to the docker folder and build a GPSeq container based on the docker file.
+5. Pull gpseq container from docker hub.
+```
+$ docker pull wenjingk/gpseq
+```
+or, you could also build the container using the following commands:
 ```
 $ cd docker
 $ bash build.sh
