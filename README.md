@@ -4,7 +4,9 @@ Commands starting with ```$``` are executed in the command line.
 
 The specifics of the machines necessary to run the pipeline will depend mainly on the available time and space resources. We recommend at least 15Gb of RAM and dual core processors.  
 
-If you use this sofware please cite the original manuscript [1].
+If you use this sofware please cite the original manuscript.
+
+If you are working on HPC cluster, the singulalrity version of GPSeqNP can be found [here](./README4singularity.md)
 
 ## Setting up gpseq container
 
