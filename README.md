@@ -165,7 +165,7 @@ $ docker exec gpseq_container_${run_id} \
 ```
 
 ### Output from the GPSeq preprocessing 
-When the GPSeq preprocessing pipeline is finished, the output files from the test run will be located in “${path_to_GPSeqNP}/test/”. Execution of the pipeline will generate the following folders:
+When the GPSeq preprocessing pipeline is finished, the output files from the test run will be located in “${path_to_GPSeqNP}/test/output”. Execution of the pipeline will generate the following folders:
 
 * fastq, containing soft linked input FASTQ files with the name reformatted. 
 * fastqc, containing FASTQC reports. 

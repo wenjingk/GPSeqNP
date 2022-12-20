@@ -1,7 +1,7 @@
 # import ubuntu 20 image
 FROM ubuntu:20.04
-ENV PATH="/root/miniconda3/bin:${PATH}"
-ARG PATH="/root/miniconda3/bin:${PATH}"
+ENV PATH="/app/miniconda3/bin:${PATH}"
+ARG PATH="/app/miniconda3/bin:${PATH}"
 ENV PATH "$PATH:/app/bin"
 ENV ZIP=bowtie2-2.4.1-linux-x86_64.zip
 ENV URL=https://sourceforge.net/projects/bowtie-bio/files/bowtie2/2.4.1
@@ -29,8 +29,7 @@ RUN apt install -y python3.8 python3-pip curl \
 
 RUN wget \
     https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
-    && mkdir /root/.conda \
-    && bash Miniconda3-latest-Linux-x86_64.sh -b \
+    && bash Miniconda3-latest-Linux-x86_64.sh -b -p /app/miniconda3/\
     && rm -f Miniconda3-latest-Linux-x86_64.sh 
 
 RUN conda config --add channels defaults \
@@ -61,7 +60,6 @@ RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
 
 ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
-
 
 ## Otherwise timedatectl will get called which leads to 'no systemd' inside Docker
 ENV TZ UTC
