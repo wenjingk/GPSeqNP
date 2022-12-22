@@ -38,10 +38,33 @@ echo "Step 1. check genome and cut site reference files"
 
 mkdir -p ${ref_dir}
 
+
+i=0
+
+while [[ $i -lt 1 ]]
+do
+
+
 if [[ ! -s "${bowtie2_ref}.rev.2.bt2" ]]
 then
     echo "Reference genome fasta or bowtie indexed files are not present, trying to download ..."
-    wget -O ${ref_dir}/${ref_genome}.${version}.dna.primary_assembly.noChr.fa.gz http://ftp.ensembl.org/pub/release-${version}/fasta/${species}/dna/${ref_genome}.${version}.dna.primary_assembly.fa.gz &> ${ref_dir}/download.log
+
+    url="http://ftp.ensembl.org/pub/release-${version}/fasta/${species}/dna/${ref_genome}.${version}.dna.primary_assembly.fa.gz"
+    if wget -q --method=HEAD ${url};
+    then
+	echo "Download from ${url}."
+	wget -O ${ref_dir}/${ref_genome}.${version}.dna.primary_assembly.noChr.fa.gz ${url} &> ${ref_dir}/download.log	
+    else
+	url2="http://ftp.ensembl.org/pub/release-${version}/fasta/${species}/dna/${ref_genome}.dna.primary_assembly.fa.gz"
+	if wget -q --method=HEAD ${url2};
+	then
+	    echo "Download from ${url2}."
+	    wget -O ${ref_dir}/${ref_genome}.${version}.dna.primary_assembly.noChr.fa.gz ${url2} &> ${ref_dir}/download.log
+	else
+	    echo "The file ${url} or ${url2} does not exist."
+	    break
+	fi
+    fi
     zcat ${ref_dir}/${ref_genome}.${version}.dna.primary_assembly.noChr.fa.gz | sed 's/>/>chr/' | cut -d" " -f 1 | gzip > ${ref_dir}/${ref_genome}.${version}.dna.primary_assembly.fa.gz
     rm ${ref_dir}/${ref_genome}.${version}.dna.primary_assembly.noChr.fa.gz
     /app/bin/bowtie2-build ${ref_dir}/${ref_genome}.${version}.dna.primary_assembly.fa.gz ${ref_dir}/${ref_genome}.${version}.dna.primary_assembly --threads 4 --verbose &> ${ref_dir}/${ref_genome}.${version}.dna.primary_assembly.log
@@ -62,10 +85,6 @@ fi
 
 echo ""
 
-i=0
-
-while [[ $i -lt 1 ]]
-do
 
 # check if input file is present. 
 if [[ ! -s "$input" ]]

@@ -166,6 +166,9 @@ for chrom_sel in chrom_list:
     if chrom_sel not in rss_chrom_list:
         logging.info(f"Skipping {chrom_sel} (missing from RSs data)")
         continue
+    elif rss.loc[rss["chrom"] == chrom_sel, :].shape[0] <= 3:
+        logging.info(f"Skipping {chrom_sel} (RS sites less than 3)")
+        continue
     else:
         chrom_list_clean.append(chrom_sel)
 
