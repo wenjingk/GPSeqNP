@@ -1,0 +1,6 @@
+run_id,sample_id,barcode,fastq,timepoint,ref_build,enzyme
+WK208,MS13,CATCACGC,data/MS13_S1_LALL_R1_001.fastq.gz,10s,hg38,MboI
+WK208,MS14,GTCGTCGC,data/MS14_S2_LALL_R1_001.fastq.gz,30s,hg38,MboI
+WK208,MS15,ACGACCGC,data/MS15_S3_LALL_R1_001.fastq.gz,2min,hg38,MboI
+WK208,MS16,TGATGCGC,data/MS16_S4_LALL_R1_001.fastq.gz,5min,hg38,MboI
+WK208,MS17,CATCAATC,data/MS17_S5_LALL_R1_001.fastq.gz,30min,hg38,MboI

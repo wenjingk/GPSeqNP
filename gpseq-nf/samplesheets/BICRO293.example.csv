@@ -1,0 +1,6 @@
+run_id,sample_id,barcode,fastq,timepoint,ref_build,enzyme
+BICRO293,KG54,CATCACGC,data/KG54_S5_LALL_R1_001.fastq.gz,20s,mm10,MboI
+BICRO293,KG55,GTCGTCGC,data/KG55_S4_LALL_R1_001.fastq.gz,1min,mm10,MboI
+BICRO293,KG56,ACGACCGC,data/KG56_S3_LALL_R1_001.fastq.gz,2.5min,mm10,MboI
+BICRO293,KG57,TGATGCGC,data/KG57_S2_LALL_R1_001.fastq.gz,5min,mm10,MboI
+BICRO293,KG58,CATCAATC,data/KG58_S1_LALL_R1_001.fastq.gz,20min,mm10,MboI
