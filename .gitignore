@@ -1,0 +1,11 @@
+# runtime artefacts
+ref/
+results*/
+work*/
+logs/
+.nextflow/
+.nextflow.log*
+gpseq-nf/results*/
+gpseq-nf/work*/
+gpseq-nf/tools/*.sif
+output/

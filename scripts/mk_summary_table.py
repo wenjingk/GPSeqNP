@@ -50,11 +50,21 @@ patterns["dedup"] = "([0-9]+) UMIs left after deduplication."
 
 dataframe = pd.DataFrame()
 
-fastq_dir_path = os.path.join(args.root, "fastq")
-assert os.path.isdir(fastq_dir_path)
+# PATCH (gpseq-nf): derive the library list from fastq_hq/*.log rather than the
+# raw-demux 'fastq/' dir. When the Nextflow pipeline feeds one fastq per sample
+# (GPSEQ_MAP), GPSeqNP never populates 'fastq/', so the original glob returned an
+# empty list and produced a header-only summary_table.tsv. fastq_hq/<lib>.log is
+# written once per library and is consumed immediately below, so it's a reliable
+# library-id source in both the per-sample (pipeline) and multiplexed (standalone)
+# layouts. Sorted for deterministic row order.
+fastq_hq_dir_path = os.path.join(args.root, "fastq_hq")
+assert os.path.isdir(fastq_hq_dir_path), f"missing fastq_hq dir under '{args.root}'"
 
-fastq_list = glob(os.path.join(fastq_dir_path, "*"))
-library_id_list = [os.path.basename(x).split(".")[0] for x in fastq_list]
+library_id_list = sorted(
+    os.path.basename(x).split(".")[0]
+    for x in glob(os.path.join(fastq_hq_dir_path, "*.log"))
+)
+assert library_id_list, f"no fastq_hq/*.log found under '{fastq_hq_dir_path}'"
 dataframe["prep_run"] = np.repeat(os.path.basename(args.root), len(library_id_list))
 
 logging.info(f"Found {len(library_id_list)} library IDs: {library_id_list}")

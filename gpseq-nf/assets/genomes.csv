@@ -1,0 +1,5 @@
+ref_build,ref_genome,ref_version,chrom_tag,mask,chrom_sizes_url
+hg38,Homo_sapiens.GRCh38,105,"22:X,Y",hg38_low_mappability.UMAP_S50.bins_1e+06_1e+05.tsv,https://hgdownload.cse.ucsc.edu/goldenpath/hg38/bigZips/hg38.chrom.sizes
+hg19,Homo_sapiens.GRCh37,75,"22:X,Y",hg19_low_mappability.UMAP_S50.bins_1e+06_1e+05.tsv,https://hgdownload.cse.ucsc.edu/goldenpath/hg19/bigZips/hg19.chrom.sizes
+mm10,Mus_musculus.GRCm38,102,"19:X,Y",mm10_low_mappability.UMAP_S50.bins_1e+06_1e+05.tsv,https://hgdownload.cse.ucsc.edu/goldenpath/mm10/bigZips/mm10.chrom.sizes
+mm9,Mus_musculus.NCBIM37,67,"19:X,Y",mm9_low_mappability.UMAP_S50.bins_1e+06_1e+05.tsv,https://hgdownload.cse.ucsc.edu/goldenpath/mm9/bigZips/mm9.chrom.sizes

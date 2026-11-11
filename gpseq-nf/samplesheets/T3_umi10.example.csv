@@ -1,0 +1,3 @@
+run_id,sample_id,barcode,fastq,timepoint,ref_build,enzyme,umi_length
+T3_umi10,MS13,CATCACGC,data/MS13_100K_R1_001.fastq.gz,10s,hg38,MboI,10
+T3_umi10,MS14,GTCGTCGC,data/MS14_100K_R1_001.fastq.gz,30s,hg38,MboI,10

@@ -17,6 +17,7 @@ bowtie2_ref="${ref_dir}/${ref_genome}.${version}.dna.primary_assembly"
 cutsite_path="${ref_dir}/${ref_genome}.${version}.dna.primary_assembly.${cut_enzyme}_sites.bed.gz"
 output=${10}
 threads=${11}
+umi_length=${12:-8}
 
 echo "project ID: "$run_id
 echo "sample ID: "$libid
@@ -120,7 +121,7 @@ fbarber flag extract \
    --filter-qual-output $output/fastq_hq/$libid.lq.fastq.gz \
    --unmatched-output $output/fastq_hq/$libid.unmatched.fastq.gz \
    --log-file $output/fastq_hq/$libid.log \
-   --pattern "umi8bc"${len_barcode}"cs"${len_cut_seq} --simple-pattern \
+   --pattern "umi"${umi_length}"bc"${len_barcode}"cs"${len_cut_seq} --simple-pattern \
    --flagstats bc cs --filter-qual-flags umi,30,.2 \
    --threads $threads --chunk-size 200000 &> $output/fastq_hq/$libid.err
 
