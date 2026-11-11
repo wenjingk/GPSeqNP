@@ -10,8 +10,13 @@ implement the GPSeq preprocessing workflow and were **written by Gabriele Girell
 are the substance of the analysis: barcode and cut-site filtering, alignment, UMI grouping
 and UMI-level deduplication, and cut-site assignment.
 
-The GPSeq method itself should be cited from its primary publication (Girelli et al.,
-*Nature Biotechnology*, 2020).
+These scripts were published together with the GPSeq paper, which is the citation for the
+method and for this processing code:
+
+> Girelli G, Custodio J, Kallas T, Agostini F, Wernersson E, Spanjaard B, Mota A,
+> Kolbeinsdottir S, Gelali E, Crosetto N, Bienko M.
+> **GPSeq reveals the radial organization of chromatin in the cell nucleus.**
+> *Nature Biotechnology* **38**, 1184-1193 (2020).
 
 ## Nextflow wrapper and patches — Wenjing Kang
 
@@ -40,7 +45,8 @@ independent of this repository.
 
 Released under the MIT licence (see `LICENSE`), with copyright held jointly: Gabriele
 Girelli for the original processing scripts in `scripts/`, Wenjing Kang for the `gpseq-nf/`
-wrapper and the patches listed above.
+wrapper and the patches listed above. The original scripts were released with the 2020
+publication above for community use.
 
 `tools/GPSeq-RadiCal/gpseq-radical.R` is vendored from `BiCroLab/GPSeq-RadiCal` and retains
 whatever terms that project carries; it is not covered by this repository's licence.

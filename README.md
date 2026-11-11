@@ -3,9 +3,13 @@
 A Nextflow wrapper for **GPSeqNP**, the GPSeq preprocessing workflow. Takes a samplesheet
 of FASTQ files to deduplicated BAMs, cut-site BED files, and RADICAL centrality scores.
 
-GPSeq (genomic loci positioning by sequencing) measures the radial position of genomic loci
-in the nucleus. See the primary publication for the method itself; this repository is the
-processing tooling.
+GPSeq measures the radial organization of chromatin in the nucleus. The method and these
+processing scripts were published in:
+
+> Girelli G, Custodio J, Kallas T, Agostini F, Wernersson E, Spanjaard B, Mota A,
+> Kolbeinsdottir S, Gelali E, Crosetto N, Bienko M.
+> **GPSeq reveals the radial organization of chromatin in the cell nucleus.**
+> *Nature Biotechnology* **38**, 1184-1193 (2020).
 
 > **Authorship in one line:** the processing scripts in `scripts/` are Gabriele Girelli's;
 > `gpseq-nf/` is a Nextflow wrapper around them written by Wenjing Kang. It invokes the
@@ -70,11 +74,12 @@ AUTHORS.md      authorship, attribution, licensing
 
 ## Citing
 
-Three distinct things, please don't conflate them:
+Two things:
 
-1. **the GPSeq method** — its primary publication;
-2. **GPSeqNP**, the processing scripts — this repository, crediting G. Girelli;
-3. **gpseq-nf**, the wrapper — this repository's release tag.
+1. **the GPSeq method and its processing scripts** — Girelli et al., *Nature
+   Biotechnology* 38, 1184-1193 (2020), as above;
+2. **gpseq-nf**, the Nextflow wrapper — this repository's release tag, if the
+   orchestration is relevant to what you are reporting.
 
 ## Licence
 
